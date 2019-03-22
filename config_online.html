@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CONFIG</title>
+<meta name="author" content="(Wong Ding Feng)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">CONFIG</h1><h2 class="author">Wong Ding Feng</h2><p class="date">Created: 2019-03-22 Fri 14:43</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org6c9e91f">1. user vars</a></li>
+<li><a href="#/slide-org5a5492e">2. use-package</a></li>
+<li><a href="#/slide-org4e7f050">3. conunsel</a></li>
+<li><a href="#/slide-org22bff71">4. ivy</a></li>
+<li><a href="#/slide-orgedf9303">5. which-key</a></li>
+<li><a href="#/slide-orgea3b0b5">6. moe-theme</a></li>
+<li><a href="#/slide-org4c30c6a">7. yp</a></li>
+<li><a href="#/slide-orga2ecb77">8. littering</a></li>
+<li><a href="#/slide-org6442fac">9. auto-save-mode</a></li>
+<li><a href="#/slide-orge235894">10. lock</a></li>
+<li><a href="#/slide-orgf360270">11. pdf-tools</a></li>
+<li><a href="#/slide-orge0d328a">12. org</a>
+<ul>
+<li><a href="#/slide-org81d9b4f">12.1. org-drill</a></li>
+<li><a href="#/slide-org759c717">12.2. org-ref</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org1f30d51">13. menu bar mode</a></li>
+<li><a href="#/slide-orgc825ea3">14. yasnippet</a></li>
+<li><a href="#/slide-orgb914135">15. evil</a></li>
+<li><a href="#/slide-org53ba172">16. autosave</a></li>
+<li><a href="#/slide-org2bc3ff3">17. google this</a></li>
+<li><a href="#/slide-org806489c">18. Auto all</a></li>
+<li><a href="#/slide-orgad341fa">19. compnay mode</a></li>
+<li><a href="#/slide-org77214fe">20. config</a></li>
+<li><a href="#/slide-orgfb5991c">21. smart parens</a></li>
+<li><a href="#/slide-orgfd8deca">22. counsel-projectile</a></li>
+<li><a href="#/slide-org4021cbb">23. projectile</a></li>
+<li><a href="#/slide-org9e4569e">24. lsp</a></li>
+<li><a href="#/slide-org94f7afe">25. company-lsp</a></li>
+<li><a href="#/slide-org00144f6">26. lsp-ui</a></li>
+<li><a href="#/slide-orgf75e33f">27. ccls-cquery</a></li>
+<li><a href="#/slide-org608b2c5">28. flycheck</a></li>
+<li><a href="#/slide-org561528e">29. ripgrep</a></li>
+<li><a href="#/slide-org45f41c2">30. magit</a></li>
+<li><a href="#/slide-org0ed2831">31. jumps</a>
+<ul>
+<li><a href="#/slide-org0a0242c">31.1. dumb jump</a></li>
+<li><a href="#/slide-orgaab81df">31.2. jump</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org6c76988">32. dashboard</a></li>
+<li><a href="#/slide-org132a112">33. pdf</a></li>
+<li><a href="#/slide-org99ffabd">34. dot</a></li>
+<li><a href="#/slide-orgedd04ad">35. tabs</a></li>
+<li><a href="#/slide-org21865d0">36. simple<sub>SRC</sub></a></li>
+<li><a href="#/slide-orgd751b95">37. pql</a></li>
+<li><a href="#/slide-org79519ab">38. wgrep</a></li>
+<li><a href="#/slide-orgcfba257">39. base16</a></li>
+<li><a href="#/slide-org8fc02d3">40. transparency</a></li>
+<li><a href="#/slide-org811f3ad">41. nix</a>
+<ul>
+<li><a href="#/slide-org7b4de8d">41.1. nixos-options</a></li>
+<li><a href="#/slide-orgdc3a576">41.2. nix mode</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgfceb0da">42. undo tree</a></li>
+<li><a href="#/slide-org3e68f79">43. smart jump</a></li>
+<li><a href="#/slide-org6458dc6">44. beacon mode</a></li>
+<li><a href="#/slide-org29fefbc">45. rainbow delimitters</a></li>
+<li><a href="#/slide-orgc96bd9d">46. avy</a></li>
+<li><a href="#/slide-orgb395f77">47. treemacs</a></li>
+<li><a href="#/slide-org9462959">48. python</a>
+<ul>
+<li><a href="#/slide-orgfa434d7">48.1. jedi</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org9f7f04f">49. company jedi</a></li>
+<li><a href="#/slide-orgaa8be83">50. rainbow mode</a></li>
+<li><a href="#/slide-orgbd0424a">51. python</a>
+<ul>
+<li><a href="#/slide-orga2eebbb">51.1. alist</a></li>
+<li><a href="#/slide-org28a7de9">51.2. ein</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org1353cfc">52. hl-todo</a></li>
+<li><a href="#/slide-org214d9a5">53. center cursor</a></li>
+<li><a href="#/slide-org208783e">54. reveal.js</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org6c9e91f">
+<h2 id="org6c9e91f"><span class="section-number-2">1</span> user vars</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">user-full-name</span> <span style="color: #98be65;">"Wong Ding Feng"</span>
+      <span style="color: #dcaeea;">user-mail-address</span> <span style="color: #98be65;">"dfwong5566@gmail.com"</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org5a5492e">
+<h2 id="org5a5492e"><span class="section-number-2">2</span> use-package</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">  <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">require</span> <span style="color: #51afef;">'</span><span style="color: #a9a1e1;">package</span><span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">package-archives</span>
+           <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"org"</span> . <span style="color: #98be65;">"http://orgmode.org/elpa/"</span><span style="color: #c678dd;">)</span> t<span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">package-archives</span>
+           <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"melpa"</span> . <span style="color: #98be65;">"https://melpa.org/packages/"</span><span style="color: #c678dd;">)</span> t<span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">package-archives</span>
+           <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"org"</span> . <span style="color: #98be65;">"https://orgmode.org/elpa/"</span><span style="color: #c678dd;">)</span> t<span style="color: #51afef;">)</span>
+
+  <span style="color: #51afef;">(</span><span style="color: #c678dd;">package-initialize</span><span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span><span style="color: #51afef;">unless</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">package-installed-p</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">use-package</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">package-refresh-contents</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">package-install</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">use-package</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+  <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">require</span> <span style="color: #51afef;">'</span><span style="color: #a9a1e1;">use-package</span><span style="color: #51afef;">)</span>
+  <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> use-package-always-ensure t<span style="color: #51afef;">)</span>
+
+  <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">Always demand if daemon-mode</span>
+  <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">(setq use-package-always-demand (daemonp))</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org4e7f050">
+<h2 id="org4e7f050"><span class="section-number-2">3</span> conunsel</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">counsel</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org22bff71">
+<h2 id="org22bff71"><span class="section-number-2">4</span> ivy</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">  <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">ivy</span>
+    <span style="color: #c678dd;">:ensure</span> counsel
+    <span style="color: #c678dd;">:config</span> 
+    <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">ivy-mode</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">ivy-use-virtual-buffers</span> t<span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">enable-recursive-minibuffers</span> t<span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\C-s</span><span style="color: #98be65;">"</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">swiper</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-c C-r"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">ivy-resume</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"&lt;f6&gt;"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">ivy-resume</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"M-x"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-M-x</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-x C-f"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-find-file</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"&lt;f1&gt; f"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-describe-function</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"&lt;f1&gt; v"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-describe-variable</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"&lt;f1&gt; l"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-find-library</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"&lt;f2&gt; i"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-info-lookup-symbol</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"&lt;f2&gt; u"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-unicode-char</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-c g"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-git</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-c j"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-git-grep</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-c k"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-ag</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-x l"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-locate</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #c678dd;">global-set-key</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-S-o"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-rhythmbox</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">define-key</span> <span style="color: #dcaeea;">minibuffer-local-map</span> <span style="color: #98be65;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"C-r"</span><span style="color: #98be65;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">counsel-minibuffer-history</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgedf9303">
+<h2 id="orgedf9303"><span class="section-number-2">5</span> which-key</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">which-key</span>
+      <span style="color: #c678dd;">:ensure</span> t
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">which-key-mode</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">which-key-idle-delay</span> <span style="color: #da8548; font-weight: bold;">0.1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgea3b0b5">
+<h2 id="orgea3b0b5"><span class="section-number-2">6</span> moe-theme</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">moe-theme</span>
+      <span style="color: #c678dd;">:ensure</span> t
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span>moe-dark<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org4c30c6a">
+<h2 id="org4c30c6a"><span class="section-number-2">7</span> yp</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">defalias</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">yes-or-no-p</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">y-or-n-p</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orga2ecb77">
+<h2 id="orga2ecb77"><span class="section-number-2">8</span> littering</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">no-littering</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">require</span> <span style="color: #51afef;">'</span><span style="color: #a9a1e1;">recentf</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">recentf-exclude</span> no-littering-var-directory<span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">recentf-exclude</span> no-littering-etc-directory<span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">auto-save-file-name-transforms</span>
+        <span style="color: #51afef;">`</span><span style="color: #98be65;">(</span><span style="color: #51afef;">(</span><span style="color: #98be65;">".*"</span> ,<span style="color: #c678dd;">(</span>no-littering-expand-var-file-name <span style="color: #98be65;">"auto-save/"</span><span style="color: #c678dd;">)</span> t<span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org6442fac">
+<h2 id="org6442fac"><span class="section-number-2">9</span> auto-save-mode</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">super-save</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span>super-save-mode <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orge235894">
+<h2 id="orge235894"><span class="section-number-2">10</span> lock</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">create-lockfiles</span> nil<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgf360270">
+<h2 id="orgf360270"><span class="section-number-2">11</span> pdf-tools</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">pdf-tools</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orge0d328a">
+<h2 id="orge0d328a"><span class="section-number-2">12</span> org</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">org-modules</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">org-drill</span><span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">org</span>
+      <span style="color: #c678dd;">:ensure</span> org-plus-contrib
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">plist-put</span> <span style="color: #dcaeea;">org-format-latex-options</span> <span style="color: #c678dd;">:scale</span> <span style="color: #da8548; font-weight: bold;">2.5</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">org-babel-do-load-languages</span>
+    <span style="color: #51afef;">'</span><span style="color: #dcaeea;">org-babel-load-languages</span>
+    <span style="color: #51afef;">'</span><span style="color: #98be65;">(</span><span style="color: #51afef;">(</span>dot . t<span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-org81d9b4f">
+<h3 id="org81d9b4f"><span class="section-number-3">12.1</span> org-drill</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">(load "/home/df/.emacs.d.df/elpa/org-plus-contrib-20190225/org-drill.el")</span>
+     <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">org-drill</span>
+       <span style="color: #c678dd;">:load-path</span> <span style="color: #98be65;">"/home/df/.emacs.d.df/elpa/org-plus-contrib-20190225/org-drill.el"</span>
+       <span style="color: #c678dd;">:defer</span> t 
+       <span style="color: #c678dd;">:ensure</span> org-plus-contrib<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-org759c717">
+<h3 id="org759c717"><span class="section-number-3">12.2</span> org-ref</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">org-ref</span>
+       <span style="color: #c678dd;">:config</span>
+       <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> reftex-default-bibliography <span style="color: #51afef;">'</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"~/df/org/ref/master.bib"</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+       <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> org-ref-bibliography-notes <span style="color: #98be65;">"~/df/org/ref/notes.org"</span>
+         org-ref-default-bibliography <span style="color: #51afef;">'</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"~/df/org/ref/master.bib"</span><span style="color: #98be65;">)</span>
+         org-ref-pdf-directory <span style="color: #98be65;">"~/df/org/ref/pdfs/"</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+       <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">(setq bibtex-completion-bibliography "~/df/org/ref/master.bib"</span>
+       <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">        bibtex-completion-library-path "~/df/org/ref/pdfs/"</span>
+  <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">         bibtex-completion-notes-path "~/df/org/ref/notes.org"))</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org1f30d51">
+<h2 id="org1f30d51"><span class="section-number-2">13</span> menu bar mode</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #dcaeea;">menu-bar-mode</span> <span style="color: #da8548; font-weight: bold;">-1</span><span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">(</span><span style="color: #dcaeea;">tool-bar-mode</span> <span style="color: #da8548; font-weight: bold;">-1</span><span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">(</span><span style="color: #dcaeea;">scroll-bar-mode</span> <span style="color: #da8548; font-weight: bold;">-1</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgc825ea3">
+<h2 id="orgc825ea3"><span class="section-number-2">14</span> yasnippet</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">yasnippet</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">yas-global-mode</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgb914135">
+<h2 id="orgb914135"><span class="section-number-2">15</span> evil</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">evil</span>
+      <span style="color: #c678dd;">:bind</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">:map</span> <span style="color: #dcaeea;">evil-insert-state-map</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-x C-f"</span> . company-files<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">evil-mode</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org53ba172">
+<h2 id="org53ba172"><span class="section-number-2">16</span> autosave</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">save-all</span> <span style="color: #c678dd;">()</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">save-some-buffers</span> t<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+    <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-hook</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">focus-out-hook</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">save-all</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org2bc3ff3">
+<h2 id="org2bc3ff3"><span class="section-number-2">17</span> google this</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">google-this</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span>google-this-mode <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org806489c">
+<h2 id="org806489c"><span class="section-number-2">18</span> Auto all</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-hook</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">text-mode-hook</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">turn-on-auto-fill</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgad341fa">
+<h2 id="orgad341fa"><span class="section-number-2">19</span> compnay mode</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">company</span>
+      <span style="color: #c678dd;">:bind</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">:map</span> <span style="color: #dcaeea;">comint-mode-map</span>
+        <span style="color: #98be65;">(</span><span style="color: #98be65;">"&lt;tab&gt;"</span> . company-complete-common<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">global-company-mode</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> company-ispell-dictionary <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">expand-file-name</span> <span style="color: #98be65;">"./words_alpha.txt"</span> <span style="color: #dcaeea;">user-emacs-directory</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org77214fe">
+<h2 id="org77214fe"><span class="section-number-2">20</span> config</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">evil-surround</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">global-evil-surround-mode</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgfb5991c">
+<h2 id="orgfb5991c"><span class="section-number-2">21</span> smart parens</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">smartparens</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">require</span> <span style="color: #51afef;">'</span><span style="color: #a9a1e1;">smartparens-config</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">sp-pair</span> <span style="color: #98be65;">"$"</span> <span style="color: #98be65;">"$"</span><span style="color: #c678dd;">)</span> 
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">show-smartparens-global-mode</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">smartparens-global-mode</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgfd8deca">
+<h2 id="orgfd8deca"><span class="section-number-2">22</span> counsel-projectile</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">counsel-projectile</span>
+      <span style="color: #c678dd;">:bind-keymap</span>
+      <span style="color: #c678dd;">(</span><span style="color: #98be65;">"C-c p"</span> . <span style="color: #dcaeea;">projectile-command-map</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org4021cbb">
+<h2 id="org4021cbb"><span class="section-number-2">23</span> projectile</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">projectile</span>
+      <span style="color: #c678dd;">:ensure</span> counsel-projectile
+      <span style="color: #c678dd;">:bind-keymap</span>
+      <span style="color: #c678dd;">(</span><span style="color: #98be65;">"C-c p"</span> . <span style="color: #dcaeea;">projectile-command-map</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org9e4569e">
+<h2 id="org9e4569e"><span class="section-number-2">24</span> lsp</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">lsp-mode</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org94f7afe">
+<h2 id="org94f7afe"><span class="section-number-2">25</span> company-lsp</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">company-lsp</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org00144f6">
+<h2 id="org00144f6"><span class="section-number-2">26</span> lsp-ui</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">lsp-ui</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgf75e33f">
+<h2 id="orgf75e33f"><span class="section-number-2">27</span> ccls-cquery</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">ccls</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org608b2c5">
+<h2 id="org608b2c5"><span class="section-number-2">28</span> flycheck</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">flycheck</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org561528e">
+<h2 id="org561528e"><span class="section-number-2">29</span> ripgrep</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">ripgrep</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org45f41c2">
+<h2 id="org45f41c2"><span class="section-number-2">30</span> magit</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">magit</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org0ed2831">
+<h2 id="org0ed2831"><span class="section-number-2">31</span> jumps</h2>
+<div class="outline-text-2" id="text-31">
+</div>
+</section>
+<section id="slide-org0a0242c">
+<h3 id="org0a0242c"><span class="section-number-3">31.1</span> dumb jump</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">dumb-jump</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgaab81df">
+<h3 id="orgaab81df"><span class="section-number-3">31.2</span> jump</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">ace-jump-mode</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org6c76988">
+<h2 id="org6c76988"><span class="section-number-2">32</span> dashboard</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">dashboard</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> dashboard-items <span style="color: #51afef;">'</span><span style="color: #98be65;">(</span><span style="color: #51afef;">(</span>recents  . <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span>
+                  <span style="color: #51afef;">(</span>bookmarks . <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span>
+                  <span style="color: #51afef;">(</span>projects . <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span>
+                  <span style="color: #51afef;">(</span>agenda . <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span>
+                  <span style="color: #51afef;">(</span>registers . <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span>dashboard-setup-startup-hook<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org132a112">
+<h2 id="org132a112"><span class="section-number-2">33</span> pdf</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">pdf-tools</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org99ffabd">
+<h2 id="org99ffabd"><span class="section-number-2">34</span> dot</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">dot-mode</span><span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">graphviz-dot-mode</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgedd04ad">
+<h2 id="orgedd04ad"><span class="section-number-2">35</span> tabs</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">setq-default</span> <span style="color: #dcaeea;">indent-tabs-mode</span> nil<span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">setq-default</span> <span style="color: #dcaeea;">tab-width</span> <span style="color: #da8548; font-weight: bold;">2</span><span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">indent-line-function</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">insert-tab</span><span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">tab-stop-list</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">number-sequence</span> <span style="color: #da8548; font-weight: bold;">2</span> <span style="color: #da8548; font-weight: bold;">200</span> <span style="color: #da8548; font-weight: bold;">2</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org21865d0">
+<h2 id="org21865d0"><span class="section-number-2">36</span> simple<sub>SRC</sub></h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">require</span> <span style="color: #51afef;">'</span><span style="color: #a9a1e1;">generic-x</span><span style="color: #51afef;">)</span> <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">we need this</span>
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">define-generic-mode</span> 
+          <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">simple-mode</span>                         <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">name of the mode to create</span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"!!"</span><span style="color: #c678dd;">)</span>                           <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">comments start with '!!'</span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"procedure"</span> <span style="color: #98be65;">"read"</span> <span style="color: #98be65;">"call"</span> <span style="color: #98be65;">"if"</span> <span style="color: #98be65;">"else"</span><span style="color: #c678dd;">)</span>                     <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">some keywords</span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"="</span> . <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">font-lock-operator</span><span style="color: #98be65;">)</span>     <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">'=' is an operator</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">";"</span> . <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">font-lock-builtin</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>     <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">';' is a built-in </span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #98be65;">.simple$"</span><span style="color: #c678dd;">)</span>                      <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">files for which to activate this mode </span>
+           nil                              <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">other functions to call</span>
+          <span style="color: #83898d;">"A mode for simple files"</span>            <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">doc string for this mode</span>
+        <span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd751b95">
+<h2 id="orgd751b95"><span class="section-number-2">37</span> pql</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">require</span> <span style="color: #51afef;">'</span><span style="color: #a9a1e1;">generic-x</span><span style="color: #51afef;">)</span> <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">we need this</span>
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">define-generic-mode</span> 
+          <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">pql-mode</span>                         <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">name of the mode to create</span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"#"</span><span style="color: #c678dd;">)</span>                           <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">comments start with '!!'</span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"program"</span> <span style="color: #98be65;">"procedure"</span> <span style="color: #98be65;">"stmt"</span> <span style="color: #98be65;">"assign"</span>
+          <span style="color: #98be65;">"call"</span> <span style="color: #98be65;">"while"</span> <span style="color: #98be65;">"if"</span> <span style="color: #98be65;">"read"</span> <span style="color: #98be65;">"print"</span>
+          <span style="color: #98be65;">"variable"</span> <span style="color: #98be65;">"then else"</span> <span style="color: #98be65;">"and"</span> <span style="color: #98be65;">"Select"</span> <span style="color: #98be65;">"such that"</span> <span style="color: #98be65;">"Calls"</span> <span style="color: #98be65;">"Next"</span> <span style="color: #98be65;">"Affects"</span>
+          <span style="color: #98be65;">"Uses"</span> <span style="color: #98be65;">"UsesS"</span> <span style="color: #98be65;">"UsesP"</span> <span style="color: #98be65;">"Modifies"</span> <span style="color: #98be65;">"ModifiesS"</span> <span style="color: #98be65;">"ModifiesP"</span><span style="color: #c678dd;">)</span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"="</span> . <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">font-lock-operator</span><span style="color: #98be65;">)</span>     <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">'=' is an operator</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">";"</span> . <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">font-lock-builtin</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>     <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">';' is a built-in </span>
+          <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #98be65;">.simple$"</span><span style="color: #c678dd;">)</span>                      <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">files for which to activate this mode </span>
+           nil                              <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">other functions to call</span>
+          <span style="color: #83898d;">"A mode for simple files"</span>            <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">doc string for this mode</span>
+        <span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org79519ab">
+<h2 id="org79519ab"><span class="section-number-2">38</span> wgrep</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">wgrep</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgcfba257">
+<h2 id="orgcfba257"><span class="section-number-2">39</span> base16</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">defun</span> <span style="color: #c678dd;">refresh-theme</span> <span style="color: #c678dd;">()</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">interactive</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">progn</span>
+        <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">mapc</span> <span style="color: #51afef;">#'</span><span style="color: #ECBE7B;">disable-theme</span> <span style="color: #dcaeea;">custom-enabled-themes</span><span style="color: #98be65;">)</span>
+        <span style="color: #98be65;">(</span><span style="color: #c678dd;">load-theme</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">base16</span> t<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> 
+
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">base16-theme</span>
+      <span style="color: #c678dd;">:init</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">mapc</span> <span style="color: #51afef;">#'</span><span style="color: #ECBE7B;">disable-theme</span> <span style="color: #dcaeea;">custom-enabled-themes</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">load-theme</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">base16-solarized-dark</span> t<span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">mapc</span> <span style="color: #51afef;">#'</span><span style="color: #ECBE7B;">disable-theme</span> <span style="color: #dcaeea;">custom-enabled-themes</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+      <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">(load-theme 'base16 t))</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org8fc02d3">
+<h2 id="org8fc02d3"><span class="section-number-2">40</span> transparency</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #c678dd;">set-frame-parameter</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">selected-frame</span><span style="color: #c678dd;">)</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">alpha</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">95</span> . <span style="color: #da8548; font-weight: bold;">85</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> 
+    <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">default-frame-alist</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span>alpha . <span style="color: #98be65;">(</span><span style="color: #da8548; font-weight: bold;">95</span> . <span style="color: #da8548; font-weight: bold;">85</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org811f3ad">
+<h2 id="org811f3ad"><span class="section-number-2">41</span> nix</h2>
+<div class="outline-text-2" id="text-41">
+</div>
+</section>
+<section id="slide-org7b4de8d">
+<h3 id="org7b4de8d"><span class="section-number-3">41.1</span> nixos-options</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">nixos-options</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgdc3a576">
+<h3 id="orgdc3a576"><span class="section-number-3">41.2</span> nix mode</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">nix-mode</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgfceb0da">
+<h2 id="orgfceb0da"><span class="section-number-2">42</span> undo tree</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">undo-tree</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org3e68f79">
+<h2 id="org3e68f79"><span class="section-number-2">43</span> smart jump</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">smart-jump</span>
+      <span style="color: #c678dd;">:ensure</span> t
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span>smart-jump-setup-default-registers<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org6458dc6">
+<h2 id="org6458dc6"><span class="section-number-2">44</span> beacon mode</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">beacon</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span>beacon-mode<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org29fefbc">
+<h2 id="org29fefbc"><span class="section-number-2">45</span> rainbow delimitters</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">rainbow-delimiters</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #dcaeea;">rainbow-delimiters-mode</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgc96bd9d">
+<h2 id="orgc96bd9d"><span class="section-number-2">46</span> avy</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">avy</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgb395f77">
+<h2 id="orgb395f77"><span class="section-number-2">47</span> treemacs</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">treemacs</span>
+      <span style="color: #c678dd;">:defer</span> t
+      <span style="color: #c678dd;">:init</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">with-eval-after-load</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">winum</span>
+        <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">define-key</span> winum-keymap <span style="color: #51afef;">(</span><span style="color: #c678dd;">kbd</span> <span style="color: #98be65;">"M-0"</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">#'</span><span style="color: #ECBE7B;">treemacs-select-window</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">progn</span>
+        <span style="color: #98be65;">(</span><span style="color: #51afef;">setq</span> treemacs-collapse-dirs                 <span style="color: #51afef;">(</span><span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">executable-find</span> <span style="color: #98be65;">"python"</span><span style="color: #c678dd;">)</span> <span style="color: #da8548; font-weight: bold;">3</span> <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #51afef;">)</span>
+              treemacs-deferred-git-apply-delay      <span style="color: #da8548; font-weight: bold;">0.5</span>
+              treemacs-display-in-side-window        t
+              treemacs-file-event-delay              <span style="color: #da8548; font-weight: bold;">5000</span>
+              treemacs-file-follow-delay             <span style="color: #da8548; font-weight: bold;">0.2</span>
+              treemacs-follow-after-init             t
+              treemacs-git-command-pipe              <span style="color: #98be65;">""</span>
+              treemacs-goto-tag-strategy             <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">refetch-index</span>
+              treemacs-indentation                   <span style="color: #da8548; font-weight: bold;">2</span>
+              treemacs-indentation-string            <span style="color: #98be65;">" "</span>
+              treemacs-is-never-other-window         nil
+              treemacs-max-git-entries               <span style="color: #da8548; font-weight: bold;">5000</span>
+              treemacs-no-png-images                 nil
+              treemacs-no-delete-other-windows       t
+              treemacs-project-follow-cleanup        nil
+              treemacs-persist-file                  <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">expand-file-name</span> <span style="color: #98be65;">".cache/treemacs-persist"</span> <span style="color: #dcaeea;">user-emacs-directory</span><span style="color: #51afef;">)</span>
+              treemacs-recenter-distance             <span style="color: #da8548; font-weight: bold;">0.1</span>
+              treemacs-recenter-after-file-follow    nil
+              treemacs-recenter-after-tag-follow     nil
+              treemacs-recenter-after-project-jump   <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">always</span>
+              treemacs-recenter-after-project-expand <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">on-distance</span>
+              treemacs-show-cursor                   nil
+              treemacs-show-hidden-files             t
+              treemacs-silent-filewatch              nil
+              treemacs-silent-refresh                nil
+              treemacs-sorting                       <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">alphabetic-desc</span>
+              treemacs-space-between-root-nodes      t
+              treemacs-tag-follow-cleanup            t
+              treemacs-tag-follow-delay              <span style="color: #da8548; font-weight: bold;">1.5</span>
+              treemacs-width                         <span style="color: #da8548; font-weight: bold;">35</span><span style="color: #98be65;">)</span>
+
+        <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">The default width and height of the icons is 22 pixels. If you are</span>
+        <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">using a Hi-DPI display, uncomment this to double the icon size.</span>
+        <span style="color: #5B6268;">;;</span><span style="color: #5B6268;">(treemacs-resize-icons 44)</span>
+
+        <span style="color: #98be65;">(</span>treemacs-follow-mode t<span style="color: #98be65;">)</span>
+        <span style="color: #98be65;">(</span>treemacs-filewatch-mode t<span style="color: #98be65;">)</span>
+        <span style="color: #98be65;">(</span>treemacs-fringe-indicator-mode t<span style="color: #98be65;">)</span>
+        <span style="color: #98be65;">(</span><span style="color: #51afef;">pcase</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">cons</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">not</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">null</span> <span style="color: #51afef;">(</span><span style="color: #c678dd;">executable-find</span> <span style="color: #98be65;">"git"</span><span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+                     <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">not</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">null</span> <span style="color: #51afef;">(</span><span style="color: #c678dd;">executable-find</span> <span style="color: #98be65;">"python3"</span><span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+          <span style="color: #51afef;">(</span><span style="color: #51afef;">`</span><span style="color: #c678dd;">(</span>t . t<span style="color: #c678dd;">)</span>
+           <span style="color: #c678dd;">(</span>treemacs-git-mode <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">deferred</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+          <span style="color: #51afef;">(</span><span style="color: #51afef;">`</span><span style="color: #c678dd;">(</span>t . _<span style="color: #c678dd;">)</span>
+           <span style="color: #c678dd;">(</span>treemacs-git-mode <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">simple</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">:bind</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">:map</span> <span style="color: #dcaeea;">global-map</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">"M-0"</span>       . treemacs-select-window<span style="color: #98be65;">)</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-x t 1"</span>   . treemacs-delete-other-windows<span style="color: #98be65;">)</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-x t t"</span>   . treemacs<span style="color: #98be65;">)</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-x t B"</span>   . treemacs-bookmark<span style="color: #98be65;">)</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-x t C-t"</span> . treemacs-find-file<span style="color: #98be65;">)</span>
+            <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-x t M-t"</span> . treemacs-find-tag<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">treemacs-evil</span>
+      <span style="color: #c678dd;">:after</span> treemacs evil
+      <span style="color: #c678dd;">:ensure</span> t<span style="color: #51afef;">)</span>
+
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">treemacs-projectile</span>
+      <span style="color: #c678dd;">:after</span> treemacs projectile
+      <span style="color: #c678dd;">:ensure</span> t<span style="color: #51afef;">)</span>
+
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">treemacs-icons-dired</span>
+      <span style="color: #c678dd;">:after</span> treemacs dired
+      <span style="color: #c678dd;">:ensure</span> t
+      <span style="color: #c678dd;">:config</span> <span style="color: #c678dd;">(</span>treemacs-icons-dired-mode<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">treemacs-magit</span>
+      <span style="color: #c678dd;">:after</span> treemacs magit
+      <span style="color: #c678dd;">:ensure</span> t<span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org9462959">
+<h2 id="org9462959"><span class="section-number-2">48</span> python</h2>
+<div class="outline-text-2" id="text-48">
+</div>
+</section>
+<section id="slide-orgfa434d7">
+<h3 id="orgfa434d7"><span class="section-number-3">48.1</span> jedi</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> jedi:environment-root <span style="color: #98be65;">"jedi"</span><span style="color: #51afef;">)</span>  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">or any other name you like</span>
+     <span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> jedi:environment-virtualenv
+           <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">append</span> python-environment-virtualenv
+                   <span style="color: #51afef;">'</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"--python"</span> <span style="color: #98be65;">"/run/current-system/sw/bin/python3"</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org9f7f04f">
+<h2 id="org9f7f04f"><span class="section-number-2">49</span> company jedi</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">company-jedi</span>
+      <span style="color: #c678dd;">:hook</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">python-mode</span> . <span style="color: #98be65;">(</span><span style="color: #51afef;">lambda</span> <span style="color: #51afef;">()</span>
+                       <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">company-backends</span> <span style="color: #51afef;">'</span><span style="color: #ECBE7B;">company-jedi</span><span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span><span style="color: #51afef;">setq</span> jedi:complete-on-dot t<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgaa8be83">
+<h2 id="orgaa8be83"><span class="section-number-2">50</span> rainbow mode</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">rainbow-mode</span>
+      <span style="color: #c678dd;">:config</span>
+      <span style="color: #c678dd;">(</span>rainbow-mod<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgbd0424a">
+<h2 id="orgbd0424a"><span class="section-number-2">51</span> python</h2>
+<div class="outline-text-2" id="text-51">
+</div>
+</section>
+<section id="slide-orga2eebbb">
+<h3 id="orga2eebbb"><span class="section-number-3">51.1</span> alist</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #c678dd;">add-to-list</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">auto-mode-alist</span> <span style="color: #51afef;">'</span><span style="color: #c678dd;">(</span><span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #98be65;">.py</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #98be65;">'"</span> . python-mode<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-org28a7de9">
+<h3 id="org28a7de9"><span class="section-number-3">51.2</span> ein</h3>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">     <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">ein</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org1353cfc">
+<h2 id="org1353cfc"><span class="section-number-2">52</span> hl-todo</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">hl-todo</span>
+      <span style="color: #c678dd;">:bind</span>
+      <span style="color: #c678dd;">(</span><span style="color: #c678dd;">:map</span> <span style="color: #dcaeea;">hl-todo-mode-map</span>
+           <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-c p"</span> . hl-todo-previous<span style="color: #98be65;">)</span>
+           <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-c n"</span> . hl-todo-next<span style="color: #98be65;">)</span>
+           <span style="color: #98be65;">(</span><span style="color: #98be65;">"C-c o"</span> . hl-todo-occur<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span> 
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org214d9a5">
+<h2 id="org214d9a5"><span class="section-number-2">53</span> center cursor</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">centered-cursor-mode</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org208783e">
+<h2 id="org208783e"><span class="section-number-2">54</span> reveal.js</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp">    <span style="color: #51afef;">(</span><span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">org-re-reveal</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
